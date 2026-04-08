@@ -95,6 +95,7 @@ export const createClipParams: INodeProperties[] = [
 				description: 'Maximum duration of the output video in seconds',
 				name: 'max_duration_seconds',
 				type: 'number',
+
 				routing: {
 					send: {
 						type: 'body',
@@ -119,8 +120,13 @@ export const createClipParams: INodeProperties[] = [
 			{
 				displayName: 'Number of Generations',
 				description: 'Number of generations to produce',
+				hint: 'Must be between 1 and 3',
 				name: 'num_generations',
 				type: 'number',
+				typeOptions: {
+					minValue: 1,
+					maxValue: 3,
+				},
 				routing: {
 					send: {
 						type: 'body',
