@@ -136,6 +136,42 @@ export const createClipParams: INodeProperties[] = [
 				default: 1,
 			},
 			{
+				displayName: 'Resolution',
+				description: 'Resolution of the output video',
+				name: 'resolution',
+				type: 'options',
+				hint: '1080p may incur HD processing fee',
+				options: [
+					{
+						name: '240p',
+						value: '240',
+					},
+					{
+						name: '360p',
+						value: '360',
+					},
+					{
+						name: '480p',
+						value: '480',
+					},
+					{
+						name: '720p',
+						value: '720',
+					},
+					{
+						name: '1080p',
+						value: '1080',
+					},
+				],
+				routing: {
+					send: {
+						type: 'body',
+						property: 'rendering_config.resolution',
+					},
+				},
+				default: '720',
+			},
+			{
 				displayName: 'Subtitles',
 				description: 'Whether to include subtitles in the reel',
 				name: 'subtitles',
