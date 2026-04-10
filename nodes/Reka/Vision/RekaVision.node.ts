@@ -3,6 +3,7 @@ import { clipDescription } from './resources/clip';
 import { videoManagementDescription } from './resources/videoManagement';
 import { imageManagementDescription } from './resources/imageManagement';
 import { QuestionAnswerDescription } from './resources/qa';
+import { imageAndVideoChatDescription } from './resources/chat';
 
 export class RekaVision implements INodeType {
 	description: INodeTypeDescription = {
@@ -46,12 +47,12 @@ export class RekaVision implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'Clip',
-						value: 'clip',
+						name: 'Chat',
+						value: 'chat',
 					},
 					{
-						name: 'Video Management',
-						value: 'videoManagement',
+						name: 'Clip',
+						value: 'clip',
 					},
 					{
 						name: 'Image Management',
@@ -61,6 +62,10 @@ export class RekaVision implements INodeType {
 						name: 'Question & Answer',
 						value: 'QA',
 					},
+					{
+						name: 'Video Management',
+						value: 'videoManagement',
+					},
 				],
 				default: 'clip',
 			},
@@ -68,6 +73,7 @@ export class RekaVision implements INodeType {
 			...videoManagementDescription,
 			...imageManagementDescription,
 			...QuestionAnswerDescription,
+			...imageAndVideoChatDescription,
 		],
 	};
 }
