@@ -138,7 +138,7 @@ export const createClipParams: INodeProperties[] = [
 				routing: {
 					send: {
 						type: 'body',
-						property: 'generation_config.caption_style.font_family',
+						property: 'rendering_config.caption_style.font_family',
 					},
 				},
 				default: 'BebasNeue',
@@ -223,7 +223,7 @@ export const createClipParams: INodeProperties[] = [
 				routing: {
 					send: {
 						type: 'body',
-						property: 'generation_config.caption_style.position',
+						property: 'rendering_config.caption_style.position',
 					},
 				},
 				default: 'bottom',
