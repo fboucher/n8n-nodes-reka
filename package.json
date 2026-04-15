@@ -31,8 +31,8 @@
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
 		"lint:fix": "n8n-node lint --fix",
-		"release": "release-it --git.requireBranch=main",
-		"release:stable": "release-it --git.requireBranch=main",
+		"release": "n8n-node release",
+		"release:stable": "n8n-node release",
 		"release:beta": "release-it --preRelease=beta --npm.tag=beta  --git.requireBranch=develop",
 		"prepublishOnly": "npm run build"
 	},
@@ -50,7 +50,7 @@
 		]
 	},
 	"devDependencies": {
-		"@n8n/node-cli": "*",
+		"@n8n/node-cli": "^0.23.1",
 		"eslint": "9.32.0",
 		"prettier": "3.6.2",
 		"release-it": "^19.0.4",
@@ -60,6 +60,7 @@
 		"n8n-workflow": "*"
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"provenance": true
 	}
 }
