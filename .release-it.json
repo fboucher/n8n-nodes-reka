@@ -6,12 +6,10 @@
 		"requireCleanWorkingDir": false
 	},
 	"github": {
-		"release": true,
-		"releaseName": "v${version}"
+		"release": false
 	},
 	"npm": {
-		"publish": true,
-		"skipChecks": true
+		"publish": false
 	},
 	"hooks": {
 		"before:init": ["npm run build", "npm run lint"]
