@@ -1,6 +1,6 @@
 {
 	"name": "@reka-ai/n8n-nodes-reka",
-	"version": "0.6.2",
+	"version": "0.6.3",
 	"description": "Official n8n nodes to use Reka's AI in our workflows",
 	"license": "MIT",
 	"homepage": "https://reka.ai",
