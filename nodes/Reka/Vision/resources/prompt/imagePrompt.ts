@@ -1,9 +1,9 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-export const imageVideoChatParams: INodeProperties[] = [
+export const imagePromptParams: INodeProperties[] = [
 	{
 		displayName: 'Prompt',
-		description: 'Prompt about an image or short video',
+		description: 'Prompt about an image',
 		required: true,
 		name: 'prompt',
 		type: 'string',
@@ -18,8 +18,29 @@ export const imageVideoChatParams: INodeProperties[] = [
 		default: 'Describe this media',
 		displayOptions: {
 			show: {
-				resource: ['chat'],
-				operation: ['imageVideoPrompt'],
+				resource: ['prompt'],
+				operation: ['imagePrompt'],
+			},
+		},
+	},
+	{
+		displayName: 'Image Url',
+		description: 'Image URL to get the details for',
+		required: true,
+		name: 'image_url',
+		type: 'string',
+		routing: {
+			send: {
+				type: 'body',
+				property: 'messages[0].content[0]',
+				value: '={{ { "type": "image_url", "image_url": { "url": $value } } }}',
+			},
+		},
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['prompt'],
+				operation: ['imagePrompt'],
 			},
 		},
 	},
@@ -40,29 +61,8 @@ export const imageVideoChatParams: INodeProperties[] = [
 		default: 'user',
 		displayOptions: {
 			show: {
-				resource: ['chat'],
-				operation: ['imageVideoPrompt'],
-			},
-		},
-	},
-	{
-		displayName: 'Image Url',
-		description: 'Image URL to get the details for',
-		required: true,
-		name: 'image_url',
-		type: 'string',
-		routing: {
-			send: {
-				type: 'body',
-				property: 'messages[0].content[0]',
-				value: '={{ { "type": "image_url", "image_url": $value } }}',
-			},
-		},
-		default: '',
-		displayOptions: {
-			show: {
-				resource: ['chat'],
-				operation: ['imageVideoPrompt'],
+				resource: ['prompt'],
+				operation: ['imagePrompt'],
 			},
 		},
 	},
@@ -93,8 +93,8 @@ export const imageVideoChatParams: INodeProperties[] = [
 		default: 'reka-edge',
 		displayOptions: {
 			show: {
-				resource: ['chat'],
-				operation: ['imageVideoPrompt'],
+				resource: ['prompt'],
+				operation: ['imagePrompt'],
 			},
 		},
 	},

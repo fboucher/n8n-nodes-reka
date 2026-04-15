@@ -17,10 +17,10 @@ export const QuestionAnswerDescription: INodeProperties[] = [
 		},
 		options: [
 			{
-				name: 'ASK QUESTION ABOUT IMAGE',
+				name: 'ASK QUESTION ABOUT IMAGE IN THE LIBRARY',
 				value: 'askImageQuestion',
-				action: 'Ask question about image',
-				description: 'Ask a questions about a specific image',
+				action: 'Ask question about image in the library',
+				description: 'Ask a questions about a specific image in the library',
 				routing: {
 					request: {
 						method: 'POST',
@@ -29,10 +29,10 @@ export const QuestionAnswerDescription: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'ASK QUESTION ABOUT VIDEO',
+				name: 'ASK QUESTION ABOUT VIDEO IN THE LIBRARY',
 				value: 'askVideoQuestion',
-				action: 'Ask question about video',
-				description: 'Ask a questions about a specific video',
+				action: 'Ask question about video in the library',
+				description: 'Ask a questions about a specific video in the library',
 				routing: {
 					request: {
 						method: 'POST',
