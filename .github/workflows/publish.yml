@@ -60,8 +60,8 @@ jobs:
     permissions:
       # Required to mint an OIDC token for npm provenance attestation.
       id-token: write
-      # Scoped down from the default (write) for least-privilege publishing.
-      contents: read
+      # Required to create GitHub Releases.
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
@@ -89,3 +89,8 @@ jobs:
           npm publish
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" --title "v${{ github.ref_name }}" --generate-notes
