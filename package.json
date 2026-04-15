@@ -31,8 +31,8 @@
 		"dev": "n8n-node dev",
 		"lint": "n8n-node lint",
 		"lint:fix": "n8n-node lint --fix",
-		"release": "n8n-node release",
-		"release:stable": "n8n-node release",
+		"release": "release-it --git.requireBranch=main",
+		"release:stable": "release-it --git.requireBranch=main",
 		"release:beta": "release-it --preRelease=beta --npm.tag=beta  --git.requireBranch=develop",
 		"prepublishOnly": "npm run build"
 	},
