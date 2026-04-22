@@ -28,7 +28,8 @@ export const promptDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'POST',
-						baseURL: 'https://api.reka.ai/v1/chat',
+						baseURL: 'https://api.reka.ai/v1/chat/completions',
+						// baseURL: 'https://eobzc7fdgbuhl3f.m.pipedream.net',
 					},
 					send: {
 						type: 'body',

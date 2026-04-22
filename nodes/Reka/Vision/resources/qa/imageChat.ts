@@ -11,7 +11,7 @@ export const imageChatParams: INodeProperties[] = [
 		routing: {
 			send: {
 				type: 'body',
-				property: 'messages[0].content[0]',
+				property: 'messages[0].content[1]',
 				value: '={{ { "type": "text", "text": $value } }}',
 			},
 		},
@@ -55,7 +55,7 @@ export const imageChatParams: INodeProperties[] = [
 			send: {
 				type: 'body',
 				property: 'messages[0].content[0]',
-				value: '={{ { "type": "image_url", "image_url": $value } }}',
+				value: '={{ { "type": "image_url", "image_url": { "url": $value } } }}',
 			},
 		},
 		default: '',

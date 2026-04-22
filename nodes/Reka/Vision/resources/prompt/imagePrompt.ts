@@ -11,7 +11,7 @@ export const imagePromptParams: INodeProperties[] = [
 		routing: {
 			send: {
 				type: 'body',
-				property: 'messages[0].content[0]',
+				property: 'messages[0].content[1]',
 				value: '={{ { "type": "text", "text": $value } }}',
 			},
 		},
