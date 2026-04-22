@@ -7,6 +7,9 @@ export const imagePromptParams: INodeProperties[] = [
 		required: true,
 		name: 'prompt',
 		type: 'string',
+		typeOptions: {
+			rows: 4,
+		},
 		placeholder: 'Describe this media',
 		routing: {
 			send: {
@@ -37,28 +40,6 @@ export const imagePromptParams: INodeProperties[] = [
 			},
 		},
 		default: '',
-		displayOptions: {
-			show: {
-				resource: ['prompt'],
-				operation: ['imagePrompt'],
-			},
-		},
-	},
-	{
-		displayName: 'Role',
-		description: 'Role of the message sender',
-		required: true,
-		name: 'role',
-		type: 'string',
-		placeholder: 'Keep it as user, unless you are sending a system message',
-		routing: {
-			send: {
-				type: 'body',
-				property: 'messages[0].role',
-				value: '={{ $value }}',
-			},
-		},
-		default: 'user',
 		displayOptions: {
 			show: {
 				resource: ['prompt'],
