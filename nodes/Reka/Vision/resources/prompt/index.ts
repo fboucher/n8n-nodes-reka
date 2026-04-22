@@ -1,6 +1,7 @@
 import type { INodeProperties } from 'n8n-workflow';
 import { imagePromptParams } from './imagePrompt';
 import { smallVideoPromptParams } from './smallVideoPrompt';
+import { detectInImageParams } from './detectInImage';
 
 export const promptDescription: INodeProperties[] = [
 	// Operations for Prompt
@@ -20,6 +21,17 @@ export const promptDescription: INodeProperties[] = [
 				value: 'detectInImage',
 				action: 'Detect in an image',
 				description: 'Detect objects or features in a specific image',
+				routing: {
+					request: {
+						method: 'POST',
+						baseURL: 'https://api.reka.ai/v1/chat/completions',
+					},
+					send: {
+						type: 'body',
+						property: 'messages[0].role',
+						value: '=user',
+					},
+				},
 			},
 			{
 				name: 'PROMPT ABOUT AN IMAGE',
@@ -47,7 +59,6 @@ export const promptDescription: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						baseURL: 'https://api.reka.ai/v1/chat/completions',
-						// baseURL: 'https://eobzc7fdgbuhl3f.m.pipedream.net',
 					},
 					send: {
 						type: 'body',
@@ -63,4 +74,5 @@ export const promptDescription: INodeProperties[] = [
 	// Parameters for image and video prompts
 	...imagePromptParams,
 	...smallVideoPromptParams,
+	...detectInImageParams,
 ];
