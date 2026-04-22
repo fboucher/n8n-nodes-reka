@@ -1,5 +1,6 @@
 import type { INodeProperties } from 'n8n-workflow';
 import { imagePromptParams } from './imagePrompt';
+import { smallVideoPromptParams } from './smallVideoPrompt';
 
 export const promptDescription: INodeProperties[] = [
 	// Operations for Prompt
@@ -29,7 +30,6 @@ export const promptDescription: INodeProperties[] = [
 					request: {
 						method: 'POST',
 						baseURL: 'https://api.reka.ai/v1/chat/completions',
-						// baseURL: 'https://eobzc7fdgbuhl3f.m.pipedream.net',
 					},
 					send: {
 						type: 'body',
@@ -43,11 +43,24 @@ export const promptDescription: INodeProperties[] = [
 				value: 'smallVideoPrompt',
 				action: 'Prompt about a small video',
 				description: 'Write a prompt about a specific small video (max 10 seconds)',
+				routing: {
+					request: {
+						method: 'POST',
+						baseURL: 'https://api.reka.ai/v1/chat/completions',
+						// baseURL: 'https://eobzc7fdgbuhl3f.m.pipedream.net',
+					},
+					send: {
+						type: 'body',
+						property: 'messages[0].role',
+						value: '=user',
+					},
+				},
 			},
 		],
 		default: 'imagePrompt',
 	},
 
-	// Parameters for image and video chat
+	// Parameters for image and video prompts
 	...imagePromptParams,
+	...smallVideoPromptParams,
 ];
