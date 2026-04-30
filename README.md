@@ -14,6 +14,8 @@ Official Reka community node that provides various capability with AI Vision. (s
 
 ### Vision
 
+- Prompt AI about images and small videos
+
 - Question and Answer (Q&A) from video
 
 - Question and Answer (Q&A) from image
@@ -42,11 +44,28 @@ We are working on a more detailed documentation, meanwhile have a look to this [
 
 From a existing video (ex: YouTube) generate a vertical or horizontal clip using AI. Specific your instructions in a prompt (ex: Create an engaging short video highlighting the best moments) and voila! Optionally you can add burned captions, specify the minimum and maximum duration of your clip. Once ready you will get your video clip with a suggestion of title, description and tags.
 
+### Prompt
+
+Ask any question about an image or a short video (up to ~10 seconds) and get an instant AI response.
+
+**Examples:**
+
+- Describe this image
+- Summarize this video
+
+You can also detect objects in images. Provide the name of the object you're looking for, and AI will return the bounding box coordinates if it's found.
+
+**Examples:**
+
+- eye
+- flower
+
+
 ### Q&A
 
-Ask any question about a image or a video and get the response quickly. 
+Ask any question about a image or a video and get the response quickly. The video and images are first uploaded using the media management actions, then you can ask all your questions. This support long videos.
 
-Example: 
+**Examples:** 
 
 - Describe this image
 - Summarize this video

@@ -1,47 +1,25 @@
 import type { INodeProperties } from 'n8n-workflow';
 
-export const imageChatParams: INodeProperties[] = [
+export const detectInImageParams: INodeProperties[] = [
 	{
-		displayName: 'Prompt',
-		description: 'Prompt or question to ask about the video',
+		displayName: 'Detect',
+		description: 'Specify the objects or features to detect in an image',
 		required: true,
-		name: 'prompt',
+		name: 'detect',
 		type: 'string',
-		placeholder: 'Ask a question about the video content',
+		placeholder: 'face, eye, car, etc.',
 		routing: {
 			send: {
 				type: 'body',
 				property: 'messages[0].content[1]',
-				value: '={{ { "type": "text", "text": $value } }}',
+				value: '={{ { "type": "text", "text": "Detect: $value" } }}',
 			},
 		},
-		default: 'Describe this image',
+		default: '',
 		displayOptions: {
 			show: {
-				resource: ['QA'],
-				operation: ['askImageQuestion'],
-			},
-		},
-	},
-	{
-		displayName: 'Role',
-		description: 'Role of the message sender',
-		required: true,
-		name: 'role',
-		type: 'string',
-		placeholder: 'Keep it as user, unless you are sending a system message',
-		routing: {
-			send: {
-				type: 'body',
-				property: 'messages[0].role',
-				value: '={{ $value }}',
-			},
-		},
-		default: 'user',
-		displayOptions: {
-			show: {
-				resource: ['QA'],
-				operation: ['askImageQuestion'],
+				resource: ['prompt'],
+				operation: ['detectInImage'],
 			},
 		},
 	},
@@ -61,8 +39,8 @@ export const imageChatParams: INodeProperties[] = [
 		default: '',
 		displayOptions: {
 			show: {
-				resource: ['QA'],
-				operation: ['askImageQuestion'],
+				resource: ['prompt'],
+				operation: ['detectInImage'],
 			},
 		},
 	},
@@ -73,10 +51,6 @@ export const imageChatParams: INodeProperties[] = [
 		name: 'model',
 		type: 'options',
 		options: [
-			{
-				name: 'reka-core',
-				value: 'reka-core',
-			},
 			{
 				name: 'reka-edge',
 				value: 'reka-edge',
@@ -94,11 +68,11 @@ export const imageChatParams: INodeProperties[] = [
 				value: '={{ $value }}',
 			},
 		},
-		default: 'reka-core',
+		default: 'reka-edge',
 		displayOptions: {
 			show: {
-				resource: ['QA'],
-				operation: ['askImageQuestion'],
+				resource: ['prompt'],
+				operation: ['detectInImage'],
 			},
 		},
 	},
